@@ -145,7 +145,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce CACTI: a framework for better scaling up robot learning under the lens of multi-task, multi-scene robot manipulation in kitchen environments. We experiment with twenty tasks across more than two thousand layout variations, and a real robot environment with tasks involving everyday kitchen objects. 
+            Developing robots that are capable of various skills and generalization to unseen scenarios requires progress on two fronts: efficient collection of large-scale and diverse datasets, and training of high-capacity policies on the collected data. While large datasets have propelled progress in other fields like computer vision and natural language processing, collecting data of comparable scale is particularly challenging for physical systems like robotics. In this work, we propose a framework to bridge this gap and better scale up robot learning, under the lens of multi-task, multi-scene robot manipulation in kitchen environments. Our framework, named CACTI, has four stages that separately handle data collection, data augmentation, visual representation learning, and imitation policy training. We demonstrate that, in a simulated kitchen environment, CACTI enables training a single policy on 18 semantic tasks across up to 50 layout variations per task. When instantiated on a real robot setup, CACTI results in a policy capable of 5 manipulation tasks involving kitchen objects, and robust to varying layouts of distractor objects. The simulation task benchmark and augmented datasets in both real and simulated environments will be released to facilitate future research.
+          
+          
+          
+          
           </p>
         </div>
       </div>
@@ -196,13 +200,16 @@ src="https://www.youtube.com/embed/q8Eq4nn9h0c">
   
   <section class="section">
   <div class="container is-max-desktop">
-    <p>Videos of a single policy trained with the CACTI framework, deployed for different tasks</p>
+    <h2 class="title is-3">Videos</h2>
+    <p>We show a single policy trained with the CACTI framework and deployed for 5 different tasks </p>
+    <p>   </p>
 
     
     <div class="columns is-centered">
-      <div class="column">
-        <div class="content">
-  <img src="image1.gif" alt="physical robot evaluation run" style="width:100%;">
+      <div class="column"> 
+      <div class="content">
+      <img src="image1.gif" alt="physical robot evaluation run" style="width:120%;">
+      <h3 class="title is-7" align="center">Put Can On Plate</h3>
         </div>
       </div>
 
@@ -212,7 +219,8 @@ src="https://www.youtube.com/embed/q8Eq4nn9h0c">
         <div class="columns is-centered">
           <div class="column content">
      
-            <img src="image2.gif" alt="physical robot evaluation run" style="width:100%;">
+            <img src="image2.gif" alt="physical robot evaluation run" style="width:120%;">
+            <h3 class="title is-7" align="center">Drag Mug Across Table</h3>
           </div>
 
         </div>
@@ -222,37 +230,42 @@ src="https://www.youtube.com/embed/q8Eq4nn9h0c">
       
         <div class="columns is-centered">
           <div class="column content">
-            <img src="image3.gif" alt="physical robot evaluation run" style="width:100%;">
-          </div>
-        </div>       
-     
-      </div>
-      
-             <div class="column">
-      
-        <div class="columns is-centered">
-          <div class="column content">
-            <img src="image4.gif" alt="physical robot evaluation run" style="width:100%;">
+            <img src="image3.gif" alt="physical robot evaluation run" style="width:120%;">
+            <h3 class="title is-7" align="center">Put Watermelon Inside Strainer</h3>
           </div>
         </div>       
      
       </div>
       
       
-             <div class="column">
-      
-        <div class="columns is-centered">
-          <div class="column content">
-            <img src="image4.gif" alt="physical robot evaluation run" style="width:100%;">
-          </div>
-        </div>       
-     
-      </div>
       
       
       
     </div>
 
+    <div class="columns is-centered">
+
+      <div class="column is-centered"> 
+        <div class="columns is-centered" align="center">
+          <div class="column content">
+            <img src="image4.gif" alt="physical robot evaluation run" style="width:70%;">
+            <h3 class="title is-7" align="center">Close Toaster </h3>
+          </div>
+        </div>       
+     
+      </div>
+      
+      
+      <div class="column is-centered"> 
+        <div class="columns is-centered" align="center">
+          <div class="column content">
+            <img src="image5.gif" alt="physical robot evaluation run" style="width:70%;">
+            <h3 class="title is-7" align="center">Take Can Out Of Plate</h3>
+          </div>
+        </div>       
+     
+      </div>
+    </div>
   </div>
 </section>  
   
