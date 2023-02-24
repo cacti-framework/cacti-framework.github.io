@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" type="image/x-icon" href="static/images/cacti-logo.png?v=1"/>
+  <link rel="icon" type="image/x-icon" href="cacti-logo.png?v=1"/>
   <meta charset="utf-8">
   <meta name="description"
         content="CACTI: A Framework for Scalable Multi-Task Multi-Scene Visual Imitation Learning">
@@ -52,7 +52,8 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">CACTI: A Framework for Scalable Multi-Task Multi-Scene Visual Imitation Learning </h1>
-          <div class="is-size-5 publication-authors">
+          
+          <div class="is-size-4 publication-authors">
             <span class="author-block">
               <a href="https://mandizhao.github.io/">Zhao Mandi</a><sup>1,2</sup>,</span>
             <span class="author-block">
@@ -80,7 +81,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2212.05711.pdf"
+                <a href="https://arxiv.org/abs/2212.05711"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -88,7 +89,7 @@
                   <span>Paper</span>
                 </a>
               </span>
-            <span class="link-block">
+            <!-- <span class="link-block">
                 <a href="https://drive.google.com/file/d/19rLsy3RbI2l5p1sLxjYZqpYGF1BvyeQw/view?usp=sharing"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -96,7 +97,8 @@
                   </span>
                   <span>Video</span>
                   </a>
-              </span> 
+              </span>  -->
+
             </div>
 
           </div>
@@ -106,6 +108,16 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop"> 
+  <div class="columns is-centered">  
+    <p align="center"> 
+        <iframe width="800" height="450" src="teaser-vid-website.m4v">
+      </iframe>
+    </p> 
+   </div>
+  </div>   
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -115,202 +127,228 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Developing robots that are capable of various skills and generalization to unseen scenarios requires progress on two fronts: efficient collection of large-scale and diverse datasets, and training of high-capacity policies on the collected data. While large datasets have propelled progress in other fields like computer vision and natural language processing, collecting data of comparable scale is particularly challenging for physical systems like robotics. In this work, we propose a framework to bridge this gap and better scale up robot learning, under the lens of multi-task, multi-scene robot manipulation in kitchen environments. Our framework, named CACTI, has four stages that separately handle data collection, data augmentation, visual representation learning, and imitation policy training. We demonstrate that, in a simulated kitchen environment, CACTI enables training a single policy on 18 semantic tasks across up to 50 layout variations per task. When instantiated on a real robot setup, CACTI results in a policy capable of 5 manipulation tasks involving kitchen objects, and robust to varying layouts of distractor objects. The simulation task benchmark and augmented datasets in both real and simulated environments will be released to facilitate future research.
-           
+            Large-scale training have propelled significant progress in various sub-fields of AI such as computer vision and natural language processing. However, building robot learning systems at a comparable scale remains challenging. To develop robots that can perform a wide range of skills and adapt to new scenarios, efficient methods for collecting vast and diverse amounts of data on physical robot systems are required, as well as the capability to train high-capacity policies using such datasets. 
+            
+            </p>
+          <p>
+            In this work, we propose a framework for scaling robot learning, with specific focus on multi-task and multi-scene manipulation in kitchen environments, both in simulation and in the real world. Our proposed framework, CACTI, comprises four stages that separately handle: data collection, data augmentation, visual representation learning, and imitation policy training, to enable scalability in robot learning. 
+            
+            We make use of state-of-the-art generative models as part of the data augmentation stage, and use pre-trained out-of-domain visual representations to improve training efficiency. Experimental results demonstrate the effectiveness of our approach. 
+          </p>
+
+          <p>
+            On a real robot setup, CACTI enables efficient training of a single policy that can perform 10 manipulation tasks involving kitchen objects, and is robust to varying layouts of distractors. In a simulated kitchen environment, CACTI trains a single policy to perform 18 semantic tasks across 100 layout variations for each individual task. We will release the simulation task benchmark and augmented datasets in both real and simulated environments to facilitate future research.
           
           </p>
         </div>
       </div>
-    </div>
-    <!--/ Abstract. -->
+    </div> 
   </div>
 </section>
-
-
-  
+ 
   
   <section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-
+  <div class="container is-max-desktop"> 
+    <div class="columns is-centered"> 
       <div class="column is-four-fifths">
+          <img width="1600" src="./static/images/vil-fig1-long.jpg" >
+          <!-- <img src="./static/images/vil-fig1-long.jpg" alt="Overview of the proposed four staged framework CACTI" style="width:200%;"> --> 
+      </div>  
+     </div>
+    </div> 
+  </section>
+  
 
-          <img src="./static/images/vil-fig1-long.jpg" alt="Overview of the proposed four staged framework CACTI" style="width:150%;">
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <h2 class="title is-3">Real Robot Environment </h2>
+          <div class="content has-text-justified">
+            <p>
+              We setup a workspace with 10 table-top manipulation tasks and a Franka arm. Demonstration data is collected by human experts, and augmented with an in-painting variation of the stable-diffusion model to generate highly realistic objects and scene variations.
+            </p>
+              <p align="center"> <iframe width="800" height="450" src="aug-only-video.m4v"></iframe> </p>
+          </div>
+        
+          <h2 class="title is-5">Experiment Results</h2>
+          <div class="content has-text-justified"><p>
+            We train a single policy that can perform 10 different tasks with varying layouts and shuffling distractor objects from both training and held-out set. 
+            The zero-shot generation results produced by the in-painting diffusion model not only look visually impressive, but using them as augmented data plays a key role in enabling the policy to generalize to unseen layouts and distractors.
+          </p>
+          <p>  <img width="1600" src="real-result-gif.gif" >  </p>
+        </div>
+          <h2 class="title is-5">Deployment Videos</h2>
+          <div class="columns is-centered">
+            <div class="column"> 
+            <div class="content">
+            <img src="can_on_plate.gif" alt="physical robot evaluation run" style="width:120%;">
+            <h3 class="title is-7" align="center">Put Can On Plate</h3>
+              </div>
+            </div>
+
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="ketchup_strainer.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Put Ketchup in Strainer</h3>
+                </div>
+              </div>       
+          
+            </div>
+            
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="strainer_bkwd.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Drag Strainer Backward</h3>
+                </div>
+              </div>       
+          
+            </div>
+                
+
+            <div class="column">
+            
+              <div class="columns is-centered">
+                <div class="column content">
+          
+                  <img src="drag_mug_left.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Drag Mug Left</h3>
+                </div>
+
+              </div>
+              </div>
+              
+            <div class="column">
+            
+              <div class="columns is-centered">
+                <div class="column content">
+                  <img src="watermelon_strainer.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Put Watermelon Inside Strainer</h3>
+                </div>
+              </div>       
+          
+            </div>
+             
+          </div>
+
+          <div class="columns is-centered"> 
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="close_toaster.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Close Toaster </h3>
+                </div>
+              </div>       
+          
+            </div>
+            
+            
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="can_on_table.gif" alt="physical robot evaluation run" style="width:120%;height=110%">
+                  <h3 class="title is-7" align="center">Take Can Out Of Plate</h3>
+                </div>
+              </div>  
+            </div>
+        
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="drag_mug_fwd.gif" alt="physical robot evaluation run" style="width:120%;height=95%">
+                  <h3 class="title is-7" align="center">Drag Mug Forward</h3>
+                </div>
+              </div>     
+            </div>
+          
+              
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="strainer_fwd.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Drag Strainer Forward</h3>
+                </div>
+              </div>       
+          
+            </div>
+          
+            <div class="column is-centered"> 
+              <div class="columns is-centered" align="center">
+                <div class="column content">
+                  <img src="open_toaster.gif" alt="physical robot evaluation run" style="width:120%;">
+                  <h3 class="title is-7" align="center">Open Toaster</h3>
+                </div>
+              </div>       
+          
+            </div>
+          </div>
+    
+        </div>
+
+
 
       </div> 
-      
-
-      
-     </div>
-    </div> 
-  </section>
-  
-  
-  <section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      
-       <div class="column is-four-fifths">
-      <!-- <p align="center"> <iframe width="600" height="400" src="https://www.youtube.com/embed/q8Eq4nn9h0c"> -->
-
-        <p align="center"> <iframe width="600" height="400" src="https://www.youtube.com/embed/TuzCsPNLtKs"">
-        </iframe></p>
-      </div>
-      
-      
-     </div>
-    </div> 
-  </section>
-  
-  
-  <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Videos</h2>
-    <p>We show a single policy trained with the CACTI framework and deployed for 10 different tasks </p>
-    <p>   </p>
-
     
-    <div class="columns is-centered">
-      <div class="column"> 
-      <div class="content">
-      <img src="can_on_plate.gif" alt="physical robot evaluation run" style="width:120%;">
-      <h3 class="title is-7" align="center">Put Can On Plate</h3>
-        </div>
-      </div>
-
-                     <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="ketchup_strainer.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Put Ketchup in Strainer</h3>
-          </div>
-        </div>       
-     
-      </div>
-     
-          
-          
-                <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="strainer_bkwd.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Drag Strainer Backward</h3>
-          </div>
-        </div>       
-     
-      </div>
-          
-
-      <div class="column">
-      
-        <div class="columns is-centered">
-          <div class="column content">
-     
-            <img src="drag_mug_left.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Drag Mug Left</h3>
-          </div>
-
-        </div>
-        </div>
-        
-       <div class="column">
-      
-        <div class="columns is-centered">
-          <div class="column content">
-            <img src="watermelon_strainer.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Put Watermelon Inside Strainer</h3>
-          </div>
-        </div>       
-     
-      </div>
-      
-      
-      
-      
-      
-    </div>
-
-    <div class="columns is-centered">
-
-      <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="close_toaster.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Close Toaster </h3>
-          </div>
-        </div>       
-     
-      </div>
-      
-      
-      <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="can_on_table.gif" alt="physical robot evaluation run" style="width:120%;height=110%">
-            <h3 class="title is-7" align="center">Take Can Out Of Plate</h3>
-          </div>
-        </div>       
-     
-      </div>
-  
-       <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="drag_mug_fwd.gif" alt="physical robot evaluation run" style="width:120%;height=95%">
-            <h3 class="title is-7" align="center">Drag Mug Forward</h3>
-          </div>
-        </div>       
-     
-      </div>
-     
+    
          
-      
-                 <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="strainer_fwd.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Drag Strainer Forward</h3>
-          </div>
-        </div>       
-     
-      </div>
-     
-          
-          
-                           <div class="column is-centered"> 
-        <div class="columns is-centered" align="center">
-          <div class="column content">
-            <img src="open_toaster.gif" alt="physical robot evaluation run" style="width:120%;">
-            <h3 class="title is-7" align="center">Open Toaster</h3>
-          </div>
-        </div>       
-     
-      </div>
-     
-          
-          
-          
     </div>
-  </div>
-</section>  
+  </section>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths"> 
+          <h2 class="title is-3">Simulation Environment </h2>
+         
+          
+        <p> 
+            We have built a simulated kitchen environment that contains 18 semantic tasks and randomized layout generation. 
+            CACTI trains a single policy to perform 18 semantic tasks, across 100 layout variations for each task. 
+            The vision-based policy performs nearly as well as state-based oracles, and as we increase the number of training layouts, generalization also improves on novel layouts 
+            -- this validates the effectiveness of scaling up in robot learning that our framework sets out to achieve. 
+          </p>
+          <p>  <img width="1600" src="sim_result_gif.gif" >  </p> 
+
+        </div>
+
+      </div>
+    </div>
+  </section>
  
+ 
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <!-- <div class="columns is-centered has-text-centered"> -->
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Paper</h2>
+          <p>For more details, check out our paper <a href="https://arxiv.org/abs/2212.05711">on ArXiv</a> </p>
+        </div>  
+      <!-- </div> -->
+
+       
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Bibtex</h2>
+      </div> 
+   
+
+    <div class="box"> 
+      <pre>
+        @article{mandi2022cacti,
+          title={CACTI: A Framework for Scalable Multi-Task Multi-Scene Visual Imitation Learning},
+          author={Mandi, Zhao and Bharadhwaj, Homanga and Moens, Vincent and Song, Shuran and Rajeswaran, Aravind and Kumar, Vikash},
+          journal={arXiv preprint arXiv:2212.05711},
+          year={2022}
+        }
+      </pre> 
+    </div>
+  </section>
 
 
 </body>
